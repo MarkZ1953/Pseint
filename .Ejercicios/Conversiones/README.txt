@@ -1,6 +1,7 @@
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-El programa en PseInt es un menú de opciones que permite al usuario realizar diversas conversiones de números. En el menú, se ofrecen cinco opciones: 
+Crear un programa en PseInt que despliegue un menú de opciones que permite al usuario realizar diversas conversiones de números. En el menú, se ofrecen 
+cinco opciones: 
 
 1 ) convertir un número decimal a binario
 2 ) convertir un número decimal a hexadecimal
