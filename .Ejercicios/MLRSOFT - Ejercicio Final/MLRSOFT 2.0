@@ -1,0 +1,101 @@
+Algoritmo EjercicioFinal2
+	Escribir "Ingrese la cantidad de empleados"
+	Leer cant
+	
+	auxt = "117172"
+	
+	salariomin = 1000000
+	
+	Dimension lista[cant,11],question[8],salario[cant]
+	
+	question[1] = "el nombre"
+ 	question[2] = "la cedula"
+	question[3] = "el sexo" 
+	question[4] = "la edad" 
+	question[5] = "la estatura" 
+	question[6] = "el peso" 
+	question[7] = "el cargo" 
+	question[8] = "el salario" 
+	
+	Para i = 1 Hasta cant Hacer
+		Para j = 1 Hasta 8 Hacer
+			Escribir "Ingrese ",question[j]," del empleado N°",i
+			Leer lista[i,j]
+			Segun j hacer
+				3:
+					Segun Minusculas(lista[i,j]) Hacer
+						"hombre" o "h":
+							h = h + 1
+						"mujer" o "m":
+							m = m + 1
+					FinSegun
+				4:
+					edad = ConvertirANumero(lista[i,j])
+					tedad = tedad + edad
+				5:
+					estat = ConvertirANumero(lista[i,j])
+					test = test + estat
+				6:
+					peso = ConvertirANumero(lista[i,j])
+					Si peso > 80 Entonces
+						p = p + 1
+					FinSi
+				8:
+					salario[i] = ConvertirANumero(lista[i,j])
+					totalsalud = totalsalud + (salario[i]*0.04)
+					totalaporte = totalaporte + (salario[i]*0.04)
+					
+					Si salario[i] > salariomin*4 Entonces
+						fondos = salario[i] * 0.01
+						totalfondos = totalfondos + fondos
+					SiNo
+						fondos = 0
+					FinSi
+					Si salario[i] < salariomin*2 Entonces
+						c = c + 1
+						totalaux = ConvertirANumero(auxt)*c
+						aux = ConvertirANumero(auxt)
+						lista[i,9] = auxt
+					SiNo
+						aux = 0
+						lista[i,9] = "0"
+					FinSi
+					tded = (salario[i]*0.04) + (salario[i]*0.04) + fondos
+					salario[i] = salario[i] - (salario[i]*0.04) - (salario[i]*0.04) + aux - fondos
+					totalnomina = totalnomina+salario[i]
+					lista[i,10] = ConvertirATexto(tded) 
+					lista[i,11] = ConvertirATexto(salario[i]) 
+			FinSegun
+		FinPara
+	FinPara
+	
+	promedioedad = tedad/cant
+	promedioest = test/cant
+	
+	Escribir ""
+	Escribir "--------------------------------------------------------------------------------------------------------------------"
+	Escribir "| NOMBRE DEL TRABAJADOR | CEDULA | SALARIO MENSUAL | AUXILIO DE TRANSPORTE | TOTAL DEDUCCIONES | TOTAL A PAGAR | "
+	Escribir "--------------------------------------------------------------------------------------------------------------------"
+	Para i = 1 Hasta cant Hacer
+		Para j = 1 Hasta 11 Hacer
+			Si j = 1 o j = 2 o j >= 8 y j <= 11 Entonces
+				Si j >= 8 y j <= 11 Entonces
+					Escribir "| $",lista[i,j]," " Sin Saltar
+				SiNo
+					Escribir "| ",lista[i,j]," " Sin Saltar
+				FinSi
+			FinSi
+		FinPara
+		Escribir "|"
+		Escribir "--------------------------------------------------------------------------------------------------------------------"
+	FinPara
+	Escribir ""
+	Escribir "---------- RESULTADOS FINALES --------------"
+	Escribir ""
+	Escribir "| TOTAL NOMINA : $",totalnomina," | TOTAL DESCUENTOS POR SALUD DE LOS EMPLEADOS : $",totalsalud," |"
+	Escribir "| TOTAL DESCUENTO POR APORTES DE PENSION DE LOS EMPLEADOS : $",totalaporte," |"
+	Escribir "| TOTAL APORTES FONDOS DE SOLIDARIDAD PENSIONAL : $",totalfondos," |"
+	Escribir "| TOTAL AUXILIOS DE TRANSPORTE : $",totalaux," | "
+	Escribir "| EMPLEADOS HOMBRES : ",h," | EMPLEADOS MUJERES : ",m," |"
+	Escribir "| PROMEDIO DE ESTATURA : ",promedioest," | PROMEDIO DE EDAD : ",promedioedad," | EMPLEADOS CON UN PESO SUPERIOR A 80KG : ",p," |"
+FinAlgoritmo
