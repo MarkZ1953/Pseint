@@ -1,2 +1,3 @@
 # Pseint
 Lista de cosas que he aprendido en Pseint (Pseudocodigo)
+- Un pseudocódigo es una representación escrita de un algoritmo, donde se presentan en forma de texto los pasos necesarios para resolver un problema.
