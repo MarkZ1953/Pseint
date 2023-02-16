@@ -19,6 +19,7 @@ Funcion conversiones <- conversion ( 3 )
 	Escribir ""
 	Dimension conv[5]
 	//orden de conversiones = centimentros,yardas,pulgadas y pies
+	
 	conv[1] = medida
 	conv[2] = 100
 	conv[3] = 1.09361
